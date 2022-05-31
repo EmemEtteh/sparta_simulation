@@ -2,8 +2,35 @@ package com.sparta.jungle;
 
 public class CentreManager {
 
-    public CentreManager() {
+    public static void main(String[] args) {
+        System.out.println(getCentres());
+        System.out.println(getMaxCapacity());
     }
 
-    //setMaxCentreSize (no. of centres * max capacity)
+    private static int centres;
+    private static int maxCapacity;
+
+    private static int fullCentres;
+
+    public static int getCentres() {
+        return centres;
+    }
+    public static void setCentres(int months){
+        centres = months / 2;
+    }
+
+    public static int getMaxCapacity(){
+        return maxCapacity;
+    }
+    public static void setMaxCapacity(int months){
+        maxCapacity = centres * 100;
+    }
+
+    public static int getFullCentres(){
+        return fullCentres;
+    }
+
+    public static void setFullCentres(int totalIntakeTrainees){
+        fullCentres = totalIntakeTrainees / maxCapacity;
+    }
 }
