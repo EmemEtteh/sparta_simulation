@@ -2,8 +2,8 @@ package com.sparta.jungle;
 
 public class TraineeManager {
 
-    public static int totalTrainees = 0;
-    public static int allocatedTrainees = 0;
+    private static int totalTrainees = 0;
+    private static int allocatedTrainees = 0;
 
     public static void main(String[] args) {
         setAllocatedTrainees(20);
