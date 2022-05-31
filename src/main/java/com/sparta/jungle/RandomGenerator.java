@@ -7,6 +7,6 @@ public class RandomGenerator {
     }
 
     public int getRandomCentreIntake(){
-        
+
     }
 }
