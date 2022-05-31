@@ -14,7 +14,9 @@ public class Simulator
 
         UserInput userInput = new UserInput();
         months = userInput.getMonths();
-        totalTrainees = TraineeManager.getTotalTrainees(months);
+
+        TraineeManager.setTotalTrainees(months);
+        totalTrainees = TraineeManager.getTotalTrainees();
 
         CentreManager.setCentres(months);
         centres = CentreManager.getCentres();
@@ -26,7 +28,7 @@ public class Simulator
         waitingList = WaitingList.getTraineesWaiting();
 
         CentreManager.setFullCentres(allocatedTrainees);
-        fullCentres = CentreManager.getFullcentres();
+        fullCentres = CentreManager.getFullCentres();
 
         Output.printReport(months, centres, fullCentres, allocatedTrainees, waitingList);
 
