@@ -5,8 +5,6 @@ import java.util.Random;
 
 public class RandomGenerator {
 
-
-
     public static int getRandomTrainees(){
 
         Random random = new Random();
