@@ -21,4 +21,5 @@ class WaitingListTest {
         Assertions.assertEquals(4, WaitingList.getTraineesWaiting());
     }
 
+
 }
