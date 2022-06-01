@@ -11,32 +11,37 @@ public class Simulator
     private int fullCentres = 0;
 
     public Simulator() {
+        int userInput = UserInput.getUserInput();
 
-        UserInput userInput = new UserInput();
+        while (userInput == 1 ) {
+          
+          UserInput userInput = new UserInput();
 
-        months = userInput.getMonths();
+          months = userInput.getMonths();
 
-        for (int i = 1; i <= months; i++){
-            if (i % 2 == 0){
-                CentreManager.addCentreToArray();
-            }
+          for (int i = 1; i <= months; i++){
+              if (i % 2 == 0){
+                  CentreManager.addCentreToArray();
+              }
 
-            int newTrainees = RandomGenerator.getRandomTrainees();
-            CentreManager.addTraineesToCentres(newTrainees);
+              int newTrainees = RandomGenerator.getRandomTrainees();
+              CentreManager.addTraineesToCentres(newTrainees);
+          }
+
+          for (Centre centre : CentreManager.getListOfCentres()){
+              if (centre.isFull()){
+                  fullCentres++;
+              }
+              allocatedTrainees += centre.getNumberOfTrainees();
+              centres++;
+          }
+
+          waitingList = WaitingList.getTraineesWaiting();
+
+          Output.printReport(months, centres, fullCentres, allocatedTrainees, waitingList);
+
+            userInput = UserInput.getUserInput();
         }
-
-        for (Centre centre : CentreManager.getListOfCentres()){
-            if (centre.isFull()){
-                fullCentres++;
-            }
-            allocatedTrainees += centre.getNumberOfTrainees();
-            centres++;
-        }
-
-        waitingList = WaitingList.getTraineesWaiting();
-
-        Output.printReport(months, centres, fullCentres, allocatedTrainees, waitingList);
-
     }
 
 
