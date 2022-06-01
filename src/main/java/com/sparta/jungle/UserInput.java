@@ -6,7 +6,7 @@ public class UserInput {
 
     public static int getUserInput() {
         Scanner userInput = new Scanner(System.in);
-        System.out.println("Press '1' to run programme:\nPress '2' to exit:");
+        System.out.println("Press '1' to run program or '2' to exit: ");
         int input = Integer.parseInt(userInput.nextLine());
         return input;
     }
