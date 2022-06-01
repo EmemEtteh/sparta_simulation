@@ -1,7 +1,5 @@
 package com.sparta.jungle;
 
-import java.util.random.RandomGenerator;
-
 public class Simulator
 {
     private int months;
