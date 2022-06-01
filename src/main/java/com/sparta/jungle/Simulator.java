@@ -1,45 +1,48 @@
 package com.sparta.jungle;
 
+import java.util.ArrayList;
+
 public class Simulator
 {
     private int months;
-    private int totalTrainees;
-    private int allocatedTrainees;
-    private int centres;
+    private int allocatedTrainees = 0;
+    private int centres = 0;
     private int waitingList;
-    private int maxCapacity;
-    private int fullCentres;
+    private int fullCentres = 0;
+
     public Simulator() {
         int userInput = UserInput.getUserInput();
 
         while (userInput == 1 ) {
-            months = UserInput.getMonths();
+          
+          UserInput userInput = new UserInput();
 
-            TraineeManager.setTotalTrainees(months);
-            totalTrainees = TraineeManager.getTotalTrainees();
+          months = userInput.getMonths();
 
-            CentreManager.setCentres(months);
-            centres = CentreManager.getCentres();
+          for (int i = 1; i <= months; i++){
+              if (i % 2 == 0){
+                  CentreManager.addCentreToArray();
+              }
 
-            TraineeManager.setAllocatedTrainees(months);
-            allocatedTrainees = TraineeManager.getAllocatedTrainees();
+              int newTrainees = RandomGenerator.getRandomTrainees();
+              CentreManager.addTraineesToCentres(newTrainees);
+          }
 
-            WaitingList.setTraineesWaiting(totalTrainees - allocatedTrainees);
-            waitingList = WaitingList.getTraineesWaiting();
+          for (Centre centre : CentreManager.getListOfCentres()){
+              if (centre.isFull()){
+                  fullCentres++;
+              }
+              allocatedTrainees += centre.getNumberOfTrainees();
+              centres++;
+          }
 
-            CentreManager.setMaxCapacity();
-            maxCapacity = CentreManager.getMaxCapacity();
+          waitingList = WaitingList.getTraineesWaiting();
 
-            CentreManager.setFullCentres(allocatedTrainees);
-            fullCentres = CentreManager.getFullCentres();
-
-            Output.printReport(months, centres, fullCentres, allocatedTrainees, waitingList);
+          Output.printReport(months, centres, fullCentres, allocatedTrainees, waitingList);
 
             userInput = UserInput.getUserInput();
         }
     }
-
-
 
 
     public static void main(String[] args )
