@@ -10,31 +10,36 @@ public class Simulator
     private int maxCapacity;
     private int fullCentres;
     public Simulator() {
+        int userInput = UserInput.getUserInput();
 
-        UserInput userInput = new UserInput();
-        months = userInput.getMonths();
+        while (userInput == 1 ) {
+            months = UserInput.getMonths();
 
-        TraineeManager.setTotalTrainees(months);
-        totalTrainees = TraineeManager.getTotalTrainees();
+            TraineeManager.setTotalTrainees(months);
+            totalTrainees = TraineeManager.getTotalTrainees();
 
-        CentreManager.setCentres(months);
-        centres = CentreManager.getCentres();
+            CentreManager.setCentres(months);
+            centres = CentreManager.getCentres();
 
-        TraineeManager.setAllocatedTrainees(months);
-        allocatedTrainees = TraineeManager.getAllocatedTrainees();
+            TraineeManager.setAllocatedTrainees(months);
+            allocatedTrainees = TraineeManager.getAllocatedTrainees();
 
-        WaitingList.setTraineesWaiting(totalTrainees - allocatedTrainees);
-        waitingList = WaitingList.getTraineesWaiting();
+            WaitingList.setTraineesWaiting(totalTrainees - allocatedTrainees);
+            waitingList = WaitingList.getTraineesWaiting();
 
-        CentreManager.setMaxCapacity();
-        maxCapacity = CentreManager.getMaxCapacity();
+            CentreManager.setMaxCapacity();
+            maxCapacity = CentreManager.getMaxCapacity();
 
-        CentreManager.setFullCentres(allocatedTrainees);
-        fullCentres = CentreManager.getFullCentres();
+            CentreManager.setFullCentres(allocatedTrainees);
+            fullCentres = CentreManager.getFullCentres();
 
-        Output.printReport(months, centres, fullCentres, allocatedTrainees, waitingList);
+            Output.printReport(months, centres, fullCentres, allocatedTrainees, waitingList);
 
+            userInput = UserInput.getUserInput();
+        }
     }
+
+
 
 
     public static void main(String[] args )
