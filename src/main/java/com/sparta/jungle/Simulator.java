@@ -26,7 +26,7 @@ public class Simulator
         WaitingList.setTraineesWaiting(totalTrainees - allocatedTrainees);
         waitingList = WaitingList.getTraineesWaiting();
 
-        CentreManager.setMaxCapacity(months);
+        CentreManager.setMaxCapacity();
         maxCapacity = CentreManager.getMaxCapacity();
 
         CentreManager.setFullCentres(allocatedTrainees);

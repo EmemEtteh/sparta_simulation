@@ -17,7 +17,7 @@ public class CentreManager {
     public static int getMaxCapacity(){
         return maxCapacity;
     }
-    public static void setMaxCapacity(int months){
+    public static void setMaxCapacity(){
         maxCapacity = centres * 100;
     }
 
