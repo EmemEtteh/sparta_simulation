@@ -38,7 +38,14 @@ public class Simulator
 
           Output.printReport(months, centres, fullCentres, allocatedTrainees, waitingList);
 
-            userInput = UserInput.getUserInput();
+          centres = 0;
+          fullCentres = 0;
+          allocatedTrainees = 0;
+          waitingList = 0;
+          WaitingList.setTraineesWaiting(0);
+          CentreManager.resetListOfCenters();
+
+          userInput = UserInput.getUserInput();
         }
     }
 

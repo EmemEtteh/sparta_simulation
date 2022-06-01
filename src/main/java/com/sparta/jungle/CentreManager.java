@@ -28,7 +28,11 @@ public class CentreManager {
     }
 
     public static void addCentreToArray(){
-            listOfCentres.add(new Centre(0));
+        listOfCentres.add(new Centre(0));
+    }
+
+    public static void resetListOfCenters(){
+        listOfCentres.clear();
     }
 
     public static void addTraineesToCentres(int traineesToAdd){
