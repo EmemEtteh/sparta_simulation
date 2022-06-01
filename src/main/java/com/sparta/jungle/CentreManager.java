@@ -2,11 +2,6 @@ package com.sparta.jungle;
 
 public class CentreManager {
 
-    public static void main(String[] args) {
-        System.out.println(getCentres());
-        System.out.println(getMaxCapacity());
-    }
-
     private static int centres;
     private static int maxCapacity;
 
