@@ -23,6 +23,16 @@ public class RandomGenerator {
         int randomNumberOfIntookTrainees = random.nextInt(maxTrainees - minTrainees) + minTrainees;
         return randomNumberOfIntookTrainees;
     }
+    public static int getRandomCentreIntake(int maxTrainees){
+        Random random = new Random();
+        int minTrainees = 0;
+        if (maxTrainees > 50) {
+            maxTrainees = 50;
+        }
+
+        int randomNumberOfIntookTrainees = random.nextInt(maxTrainees - minTrainees) + minTrainees;
+        return randomNumberOfIntookTrainees;
+    }
 
 
 }

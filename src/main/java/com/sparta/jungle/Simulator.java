@@ -1,36 +1,39 @@
 package com.sparta.jungle;
 
+import java.util.ArrayList;
+
 public class Simulator
 {
     private int months;
-    private int totalTrainees;
-    private int allocatedTrainees;
-    private int centres;
+    private int allocatedTrainees = 0;
+    private int centres = 0;
     private int waitingList;
-    private int maxCapacity;
-    private int fullCentres;
+    private int fullCentres = 0;
+
     public Simulator() {
 
         UserInput userInput = new UserInput();
+
         months = userInput.getMonths();
 
-        TraineeManager.setTotalTrainees(months);
-        totalTrainees = TraineeManager.getTotalTrainees();
+        for (int i = 1; i <= months; i++){
+            if (i % 2 == 0){
+                CentreManager.addCentreToArray();
+            }
 
-        CentreManager.setCentres(months);
-        centres = CentreManager.getCentres();
+            int newTrainees = RandomGenerator.getRandomTrainees();
+            CentreManager.addTraineesToCentres(newTrainees);
+        }
 
-        TraineeManager.setAllocatedTrainees(months);
-        allocatedTrainees = TraineeManager.getAllocatedTrainees();
+        for (Centre centre : CentreManager.getListOfCentres()){
+            if (centre.isFull()){
+                fullCentres++;
+            }
+            allocatedTrainees += centre.getNumberOfTrainees();
+            centres++;
+        }
 
-        WaitingList.setTraineesWaiting(totalTrainees - allocatedTrainees);
         waitingList = WaitingList.getTraineesWaiting();
-
-        CentreManager.setMaxCapacity();
-        maxCapacity = CentreManager.getMaxCapacity();
-
-        CentreManager.setFullCentres(allocatedTrainees);
-        fullCentres = CentreManager.getFullCentres();
 
         Output.printReport(months, centres, fullCentres, allocatedTrainees, waitingList);
 

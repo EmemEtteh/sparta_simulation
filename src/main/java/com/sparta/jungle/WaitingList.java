@@ -10,4 +10,8 @@ public class  WaitingList {
     public static void setTraineesWaiting(int traineesWaiting) {
         WaitingList.traineesWaiting = traineesWaiting;
     }
+
+    public static boolean isEmpty(){
+        return traineesWaiting <= 0;
+    }
 }

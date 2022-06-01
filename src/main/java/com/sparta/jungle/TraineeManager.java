@@ -5,10 +5,8 @@ public class TraineeManager {
     private static int totalTrainees = 0;
     private static int allocatedTrainees = 0;
 
-    public static void setTotalTrainees(int numberOfMonths) {
-        for (int i = 0; i <= numberOfMonths; i++) {
+    public static void setTotalTrainees() {
             totalTrainees += RandomGenerator.getRandomTrainees();
-        }
     }
 
     public static int getTotalTrainees() {
