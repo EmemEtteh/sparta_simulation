@@ -7,6 +7,7 @@ public class Simulator
     private int allocatedTrainees;
     private int centres;
     private int waitingList;
+    private int maxCapacity;
     private int fullCentres;
     public Simulator() {
 
@@ -24,6 +25,9 @@ public class Simulator
 
         WaitingList.setTraineesWaiting(totalTrainees - allocatedTrainees);
         waitingList = WaitingList.getTraineesWaiting();
+
+        CentreManager.setMaxCapacity(months);
+        maxCapacity = CentreManager.getMaxCapacity();
 
         CentreManager.setFullCentres(allocatedTrainees);
         fullCentres = CentreManager.getFullCentres();
