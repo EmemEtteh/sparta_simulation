@@ -26,6 +26,6 @@ public class CentreManager {
     }
 
     public static void setFullCentres(int totalIntakeTrainees){
-        fullCentres = totalIntakeTrainees / maxCapacity;
+        fullCentres =  totalIntakeTrainees / 100;
     }
 }
