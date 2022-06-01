@@ -14,10 +14,8 @@ public class Simulator
         int userInput = UserInput.getUserInput();
 
         while (userInput == 1 ) {
-          
-          UserInput userInput = new UserInput();
 
-          months = userInput.getMonths();
+          months = UserInput.getMonths();
 
           for (int i = 1; i <= months; i++){
               if (i % 2 == 0){

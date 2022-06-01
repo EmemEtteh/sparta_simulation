@@ -38,10 +38,12 @@ public class CentreManager {
             storedTrainees += WaitingList.getTraineesWaiting();
         }
         for (Centre centre : listOfCentres){
-            if (!centre.isFull()){
-                storedTrainees = getStoredTrainees(storedTrainees, centre);
+            if (storedTrainees > 0) {
+                if (!centre.isFull()){
+                    storedTrainees = getStoredTrainees(storedTrainees, centre);
+                }
+                WaitingList.setTraineesWaiting(storedTrainees);
             }
-            WaitingList.setTraineesWaiting(storedTrainees);
         }
     }
 
