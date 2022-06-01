@@ -4,7 +4,12 @@ import java.util.Scanner;
 
 public class UserInput {
 
-
+    public static int getUserInput() {
+        Scanner userInput = new Scanner(System.in);
+        System.out.println("Press '1' to run programme:\nPress '2' to exit:");
+        int input = Integer.parseInt(userInput.nextLine());
+        return input;
+    }
 
     public static int getMonths() {
         Scanner userInput = new Scanner(System.in);
